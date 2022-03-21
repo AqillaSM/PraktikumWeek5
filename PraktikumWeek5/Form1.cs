@@ -17,25 +17,28 @@ namespace PraktikumWeek5
         {
             InitializeComponent();
         }
-        int Angka = 0;
         private void FormMateri_Load(object sender, EventArgs e)
         {
             LabelOutput.Text = "";
+
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            ListBoxMateri.Items.Add(TextBoxInput.Text);
-            DataMateri[Angka] = TextBoxInput.Text;
-            TextBoxInput.Text = "";
-           
+            if (ListBoxMateri.Items.Contains(TextBoxInput.Text))
+            {
+                MessageBox.Show("KEMBAR");
+            }
+            else
+            {
+                ListBoxMateri.Items.Add(TextBoxInput.Text);
+            }
+            ListBoxMateri.Text = "";
 
         }
 
-
         private void LabelOutput_Click(object sender, EventArgs e)
         {
-           
             
         }
 
@@ -47,6 +50,7 @@ namespace PraktikumWeek5
 
         private void CheckBoxAktif_CheckedChanged(object sender, EventArgs e)
         {
+            
 
         }
 
@@ -77,6 +81,11 @@ namespace PraktikumWeek5
         private void ListBoxMateri_SelectedIndexChanged(object sender, EventArgs e)
         {
             LabelOutput.Text = ListBoxMateri.Text;
+
+        }
+
+        private void TextBoxInput_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
